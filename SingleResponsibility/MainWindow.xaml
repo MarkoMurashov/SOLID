@@ -1,0 +1,40 @@
+﻿<Window x:Class="SingleResponsibility.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        xmlns:local="clr-namespace:SingleResponsibility.Enums"      
+        xmlns:conv="clr-namespace:SingleResponsibility.Logic"
+        Title="MainWindow" Height="496" Width="800">
+    <Grid>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="73,140,0,0" VerticalAlignment="Top" Width="131"/>
+        <TextBox HorizontalAlignment="Left" SpellCheck.IsEnabled="True" Language="ru-ru" Margin="159,144,0,0" Name="txtName" TextWrapping="Wrap" VerticalAlignment="Top" Width="153"/>
+        <Button Content="Построить" HorizontalAlignment="Left" Margin="94,371,0,0" VerticalAlignment="Top" Width="216" Height="28" Click="Button_Click"/>
+        <TextBlock Name="txtMain" Background="Black" Foreground="White" HorizontalAlignment="Left" Margin="400,67,0,0" 
+                       TextWrapping="Wrap" VerticalAlignment="Top" Height="172" Width="349"/>
+        <Label Content="Rooms quantity" HorizontalAlignment="Left" Margin="77,281,0,0" VerticalAlignment="Top" Width="123"/>
+        <syncfusion:UpDown x:Name="upDownRooms" MinValue="1" Margin="216,284,484,139" RenderTransformOrigin="0.5,0.5">
+            <syncfusion:UpDown.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.55"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </syncfusion:UpDown.RenderTransform>
+        </syncfusion:UpDown>
+        <Label Content="Type:" HorizontalAlignment="Left" Margin="77,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.334" Width="95"/>
+        <ComboBox 
+                  ItemsSource="{Binding Source={conv:EnumToItemSource {x:Type local:HouseType}}}"
+                  HorizontalAlignment="Left" Name="cmbType" Margin="160,175,0,0" VerticalAlignment="Top" Width="150"/>
+        <ListBox Name="lstHouses" Background="Black" Foreground="White"
+                 Margin="400,292,51,8" SelectionChanged="lstHouses_SelectionChanged"/>
+        <Label Content="Style:" HorizontalAlignment="Left" Margin="79,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.334" Width="95"/>
+        <ComboBox 
+            ItemsSource="{Binding Source={conv:EnumToItemSource {x:Type local:Styles}}}"
+            HorizontalAlignment="Left" Name="cmbStyle" Margin="162,219,0,0" VerticalAlignment="Top" Width="150"/>
+        <Label Content="Build your home !" FontSize="30" FontWeight="SemiBold" FontStyle="Italic"
+               HorizontalAlignment="Left" Margin="73,52,0,0" VerticalAlignment="Top" Width="258" Height="59"/>
+        <Label Content="Your houses:" FontSize="20" HorizontalAlignment="Left" Margin="400,250,0,0" VerticalAlignment="Top"/>
+        <Label Content="House info" FontSize="20" HorizontalAlignment="Left" Margin="400,25,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
