@@ -1,6 +1,4 @@
-﻿using System;
-using SingleResponsibility.Enums;
-using SingleResponsibility.Logic;
+﻿using SingleResponsibility.Enums;
 
 namespace SingleResponsibility.Houses
 {

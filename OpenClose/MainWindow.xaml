@@ -1,0 +1,96 @@
+﻿<Window x:Class="OpenClose.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OpenClose"
+        mc:Ignorable="d"
+        Title="Pizza creator" Height="495" Width="1020">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Name="PepperoniPizzaGroupBox" Header="45$" HorizontalAlignment="Left" Height="85" 
+                  Margin="40,26,0,0" VerticalAlignment="Top" Width="214" VerticalContentAlignment="Top"
+                  HorizontalContentAlignment="Left" MouseLeftButtonUp="PepperoniPizzaGroupBox_MouseLeftButtonUp">
+            <StackPanel>
+                <Label Content="1. Pepperoni Pizza" HorizontalAlignment="Left" VerticalAlignment="Top"
+                       Height="30" Width="192"/>
+                <Label Content="    tomato, cheese, pepper" FontSize="10" Foreground="Gray" 
+                       HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Name="RejermedtunPizzaGroupBox" Header="65$" HorizontalAlignment="Left"
+                  Height="85" Margin="40,126,0,0" VerticalAlignment="Top" Width="214"
+                  VerticalContentAlignment="Top" HorizontalContentAlignment="Left" 
+                  MouseLeftButtonUp="RejermedtunPizzaGroupBox_MouseLeftButtonUp">
+            <StackPanel>
+                <Label Content="2. Shrimp and tuna Pizza" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+                <Label Content="    tomato, cheese, shrimp, tuna" FontSize="10" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="55$" HorizontalAlignment="Left" Height="85" 
+                  Margin="40,226,0,0" VerticalAlignment="Top" Width="214" 
+                  VerticalContentAlignment="Top" HorizontalContentAlignment="Left" 
+                  MouseLeftButtonUp="SkinkePizzaGroupBox_MouseLeftButtonUp">
+            <StackPanel>
+                <Label Content="3. Ham Pizza" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+                <Label Content="    tomato, cheese, ham" FontSize="10" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="60$" HorizontalAlignment="Left" Height="85" Margin="40,326,0,0" VerticalAlignment="Top" Width="214" VerticalContentAlignment="Top" HorizontalContentAlignment="Left" MouseLeftButtonUp="KebabPizzaGroupBox_MouseLeftButtonUp">
+            <StackPanel>
+                <Label Content="4. Kebab Pizza" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+                <Label Content="    tomato, cheese, kebab" FontSize="10" Foreground="Gray" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192"/>
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Name="ExtrasGroupBox" Header="Add Extras" Grid.Column="1"
+                  HorizontalAlignment="Left" Height="385" Margin="41,26,0,0"
+                  VerticalAlignment="Top" Width="214" VerticalContentAlignment="Top" 
+                  HorizontalContentAlignment="Left" Visibility="Hidden">
+            <StackPanel>
+                <GroupBox Header="Size" Margin="0,20,0,0">
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192">
+                        <CheckBox Name="FamilyPizzaCheckbox" Content="Family Pizza" Checked="FamilyPizzaCheckbox_Checked" Unchecked="FamilyPizzaCheckbox_Unchecked" />
+                    </Label>
+                </GroupBox>
+
+                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192" Margin="0,20,0,0">
+                    <CheckBox Name="PepperoniExtraCheckbox" Content="Extra pepper - 8$" Checked="PepperoniExtraCheckbox_Checked" Unchecked="PepperoniExtraCheckbox_Unchecked" />
+                </Label>
+                <Label HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="192">
+                    <CheckBox Name="CheeseExtraCheckbox" Content="Extra cheese 6$" Checked="CheeseExtraCheckbox_Checked" Unchecked="CheeseExtraCheckbox_Unchecked" />
+                </Label>
+                <Button Name="AddPizzaButton" Content="Add" Margin="0,150,0,0" Width="150" Click="AddPizzaButton_Click"/>
+
+            </StackPanel>
+        </GroupBox>
+
+        <GroupBox Name="TotalGroupBox" Header="Total in cart" Grid.Column="2" HorizontalAlignment="Left" Height="171" Margin="220,240,0,0" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Top" HorizontalContentAlignment="Left">
+            <StackPanel>
+                <Label Content="Calories" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" Margin="0,20,0,0"/>
+                <Label Name="CaloriesTotalLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" HorizontalContentAlignment="Right"/>
+
+
+                <Label Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" Margin="0,0,0,0"/>
+                <Label Name="PriceTotalLabel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" HorizontalContentAlignment="Right"/>
+
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Name="PizaGroupBox" Header="Selected Pizza" Grid.Column="2" HorizontalAlignment="Left" Height="171" Margin="39,240,0,0" VerticalAlignment="Top" Width="150" VerticalContentAlignment="Top" HorizontalContentAlignment="Left">
+            <StackPanel>
+                <Label Content="Calories" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" Margin="0,20,0,0"/>
+                <Label Name="CaloriesLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" HorizontalContentAlignment="Right"/>
+
+
+                <Label Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" Margin="0,0,0,0"/>
+                <Label Name="PriceLabel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="128" HorizontalContentAlignment="Right"/>
+
+            </StackPanel>
+        </GroupBox>
+        <Label Name="PizzaListLabel" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="39,26,0,0" VerticalAlignment="Top" Height="209" Width="327"/>
+    </Grid>
+</Window>
